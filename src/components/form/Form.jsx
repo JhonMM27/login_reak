@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import "./Form.css"
 import Imput from '../imputs/Imput'
 import Boton from '../Boton/Boton'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Form = () => {
 
@@ -10,7 +11,7 @@ const Form = () => {
 
     const [error, setError] = useState("");
 
-
+    const navigate = useNavigate();
 
     // Para Guardar y modificar datos del form
     const [formData, setFormData] = useState({
@@ -38,8 +39,15 @@ const Form = () => {
         }
         
         setError("");
+
+        localStorage.setItem("usuario",JSON.stringify({
+            correo: formData.correo,
+            contraseña: formData.contraseña
+        }))
+
         alert("Registro Exitoso")
-        console.log("datos --> ", formData)
+        navigate("/login")
+        // console.log("datos --> ", formData)
     }
 
     return (
@@ -83,6 +91,7 @@ const Form = () => {
                 />
                 {error && <p className='error-message'>{error}</p>}
                 <Boton type = "submit">Registrar</Boton>
+                <p>¿Ya tienes una Cuenta? <Link to = "/login">Iniciar Sección</Link></p>
             </form>
         </section>
     )
