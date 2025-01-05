@@ -1,0 +1,45 @@
+.inputs {
+    position: relative;
+    margin: 20px 0;
+}
+
+.inputs input {
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid rgb(84, 40, 241);
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    transform: none;
+    border-radius: 15px;
+}
+.label {
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+
+    position: absolute;
+    left: 10px;
+    top: 15px ;
+
+    color: #555;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: #fff;
+    padding: 0 5px;
+}
+
+input:focus,
+input:valid {
+    border: 2px solid rgb(74, 133, 221);
+}
+input:focus + .label,
+input:valid + .label {
+    color: rgb(61, 108, 179);
+    transform: translateY(-30px);
+
+}
+
+
